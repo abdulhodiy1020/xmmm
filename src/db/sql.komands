@@ -1,0 +1,52 @@
+CREATE TABLE "products"(
+    "id" BIGINT NOT NULL,
+    "title" VARCHAR(255) NOT NULL,
+    "description" TEXT NOT NULL,
+    "price" BIGINT NOT NULL,
+    "rating" SMALLINT NOT NULL,
+    "category_id" BIGINT NOT NULL,
+    "count" BIGINT NOT NULL,
+    "image_url" VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    "products" ADD PRIMARY KEY("id");
+CREATE TABLE "Payments"(
+    "contracts_id" BIGINT NOT NULL,
+    "amount_paint" DECIMAL(8, 2) NOT NULL,
+    "amount_date" BIGINT NOT NULL
+);
+ALTER TABLE
+    "Payments" ADD PRIMARY KEY("contracts_id");
+CREATE TABLE "categories"(
+    "id" BIGINT NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "image_url" BIGINT NOT NULL,
+    "category_id" BIGINT NOT NULL
+);
+ALTER TABLE
+    "categories" ADD PRIMARY KEY("id");
+CREATE TABLE "Contracts"(
+    "id" BIGINT NOT NULL,
+    "products_id" BIGINT NOT NULL,
+    "customers_id" BIGINT NOT NULL,
+    "payment_date" BIGINT NOT NULL
+);
+ALTER TABLE
+    "Contracts" ADD PRIMARY KEY("id");
+CREATE TABLE "customers"(
+    "id" BIGINT NOT NULL,
+    "full_name" VARCHAR(255) NOT NULL,
+    "email" TEXT NOT NULL,
+    "phone_number" VARCHAR(255) NOT NULL,
+    "image_url" VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    "customers" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "products" ADD CONSTRAINT "products_category_id_foreign" FOREIGN KEY("category_id") REFERENCES "categories"("id");
+ALTER TABLE
+    "Contracts" ADD CONSTRAINT "contracts_customers_id_foreign" FOREIGN KEY("customers_id") REFERENCES "customers"("id");
+ALTER TABLE
+    "Contracts" ADD CONSTRAINT "contracts_id_foreign" FOREIGN KEY("id") REFERENCES "Payments"("contracts_id");
+ALTER TABLE
+    "Contracts" ADD CONSTRAINT "contracts_products_id_foreign" FOREIGN KEY("products_id") REFERENCES "products"("id");

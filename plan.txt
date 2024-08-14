@@ -1,0 +1,51 @@
+Online shop system -> Magazin!
+
+
+Project management ->
+    1.Izlanish
+    2.Loyihalash -> design
+    3.Ko'dlash
+    4.Testlash
+    5.Yangilash
+
+
+Payments ->
+    contracts_id
+    amount_paint
+    amount_date
+
+Contracts ->
+    id 
+    product_id
+    customer_id
+    payment_date
+
+Products ->
+    id 
+    title
+    description
+    price
+    rating
+    category_id
+    count
+    image_url
+
+Category ->
+    id
+    name
+    image_url
+    category_id
+
+Customers ->
+    full_name
+    email
+    phone_number
+    image_url
+
+
+
+
+
+
+
+
